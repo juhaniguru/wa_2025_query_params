@@ -26,7 +26,7 @@ def _parse_query_params(_query_params):
         _sql_query_params.append(limit)
         _sql_query_params.append(offset)
 
-        return _sql_query, _sql_query_params
+    return _sql_query, _sql_query_params
 
 
 @app.route('/users')
@@ -47,7 +47,7 @@ def get_users():
             users_json.append({'id': user[0], 'name': user[1], 'email': user[2], 'department': user[3]})
         cur.close()
         return jsonify(query=_sql_query, sql_query_params=_sql_query_params, users=users_json)
-
+        #return _query_params
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=6001)
